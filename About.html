@@ -1,0 +1,144 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Kami | Shizuku Matcha</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="About.css" />
+
+    <!-- Alpine Js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- App -->
+    <script src="app.js"></script>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar" x-data>
+      <a href="Home.html" class="navbar-logo"
+        >Shizuku <span>Matcha</span></a
+      >
+
+      <div class="navbar-nav">
+        <a href="Home.html">Home</a>
+        <a href="About.html">Tentang Kami</a>
+        <a href="Menu.html">Menu</a>
+        <a href="Belanja.html">Belanja</a>
+        <a href="Contact.html">Kontak</a>
+      </div>
+
+      <div class="navbar-extra">
+        <a href="#" id="shopping-cart-button">
+          <i data-feather="shopping-cart"></i>
+          <span
+            class="quantity-badge"
+            x-show="$store.cart.quantity"
+            x-text="$store.cart.quantity"
+          ></span>
+        </a>
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+      </div>
+
+      <!-- SHOPPING CART START -->
+      <div class="shopping-cart">
+        <template x-for="(item, Home) in $store.cart.items" x-key="Home">
+          <div class="cart-item">
+            <img :src="'img/' + item.img" :alt="item.name" />
+            <div class="item-detail">
+              <h3 x-text="item.name"></h3>
+              <div class="item-price">
+                <span x-text="rupiah(item.price)"></span> &times;
+                <span x-text="item.quantity"></span>
+                &equals;
+                <span x-text="rupiah(item.total)"></span>
+              </div>
+            </div>
+          </div>
+        </template>
+        <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem">
+          Keranjang Kosong
+        </h4>
+        <h4 x-show="$store.cart.items.length">
+          Total: <span x-text="rupiah($store.cart.total)"></span>
+        </h4>
+      <!-- SHOPPING CART END -->
+    </nav>
+    <!-- NAVBAR END -->
+
+    <!-- ABOUT SECTION -->
+    <section class="about">
+      <h2><span>Tentang</span> Kami</h2>
+
+      <div class="row">
+        <div class="about-img">
+          <video src="VIDEO/Matcha-Video.mp4" controls></video>
+        </div>
+
+        <div class="content">
+          <h3>Kenapa Harus Shizuku Matcha?</h3>
+          <p>
+            Matcha kami dibuat dari daun teh pilihan berkualitas tinggi yang
+            dipetik pada waktu terbaik, kemudian digiling sangat halus
+            menggunakan teknik tradisional Jepang. Proses ini menghasilkan
+            tekstur yang lembut, aroma yang segar, dan rasa matcha yang kaya
+            serta autentik. Setiap tegukan menghadirkan pengalaman premium yang
+            menenangkan sekaligus menyegarkan.
+          </p>
+          <p>
+            Rasakan keaslian cita rasa matcha Jepang yang sesungguhnya, langsung
+            dari Shizuku Matcha dengan kualitas terbaik di setiap sajian.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER START -->
+    <footer>
+      <div class="socials">
+        <a href="https://instagram.com/rzkyrmdhni_17" target="_blank"
+          ><i data-feather="instagram"></i
+        ></a>
+        <a href="https://www.facebook.com/Riskieee17" target="_blank"
+          ><i data-feather="facebook"></i
+        ></a>
+        <a href="https://github.com/rizkyrama-76" target="_blank">
+          <i data-feather="github"></i>
+        </a>
+        <a
+          href="https://linkedin.com/in/rizky-ramadhani-28601b316"
+          target="_blank"
+          ><i data-feather="linkedin"></i
+        ></a>
+      </div>
+
+      <div class="credit">
+        <p>
+          Created by <a href="">Rizky Ramadhani</a>. | &copy; Shizuku Matcha
+          2025
+        </p>
+      </div>
+    </footer>
+    <!-- FOOTER END -->
+
+    <script>
+      feather.replace();
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

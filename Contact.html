@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontak | Shizuku Matcha</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="Contact.css" />
+
+    <!-- Alpine Js -->
+     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+     <!-- App -->
+      <script src="app.js" async></script>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar" x-data>
+      <a href="Home.html" class="navbar-logo"
+        >Shizuku <span>Matcha</span></a
+      >
+
+      <div class="navbar-nav">
+        <a href="Home.html">Home</a>
+        <a href="About.html">Tentang Kami</a>
+        <a href="Menu.html">Menu</a>
+        <a href="Belanja.html">Belanja</a>
+        <a href="Contact.html">Kontak</a>
+      </div>
+
+
+      <div class="navbar-extra">
+        <a href="#" id="shopping-cart-button">
+          <i data-feather="shopping-cart"></i>
+          <span
+            class="quantity-badge"
+            x-show="$store.cart.quantity"
+            x-text="$store.cart.quantity"
+          ></span>
+        </a>
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+      </div>
+
+      <!-- SHOPPING CART START -->
+      <div class="shopping-cart">
+        <template x-for="(item, Home) in $store.cart.items" x-key="Home">
+          <div class="cart-item">
+            <img :src="'img/' + item.img" :alt="item.name" />
+            <div class="item-detail">
+              <h3 x-text="item.name"></h3>
+              <div class="item-price">
+                <span x-text="rupiah(item.price)"></span> &times;
+                <span x-text="item.quantity"></span>
+                &equals;
+                <span x-text="rupiah(item.total)"></span>
+              </div>
+            </div>
+          </div>
+        </template>
+        <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem">
+          Keranjang Kosong
+        </h4>
+        <h4 x-show="$store.cart.items.length">
+          Total: <span x-text="rupiah($store.cart.total)"></span>
+        </h4>
+      <!-- SHOPPING CART END -->
+    </nav>
+    <!-- NAVBAR END -->
+
+    <!-- Contact Section Start-->
+    <section id="contact" class="contact">
+      <h2><span>Contact</span> Kami</h2>
+      <p>
+        Kami di Shizuku Matcha selalu senang mendengar dari Anda! Baik Anda
+        ingin menanyakan produk, melakukan pemesanan dalam jumlah besar, atau
+        sekadar berbagi pengalaman menikmati matcha favorit Anda, tim kami siap
+        membantu.
+      </p>
+      <div class="row">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d210040.11026382013!2d135.7272607210744!3d34.657816121972346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc4e7c75d6702b2d%3A0x3b4596db5c2c770b!2sShizuku%20Matcha%20-%20Tea%20Ceremony%20Experience%20in%20Nara!5e0!3m2!1sid!2sid!4v1762773261792!5m2!1sid!2sid"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="map"
+        ></iframe>
+        <form
+  action="https://formspree.io/f/movgnpbg"
+  method="POST"
+>
+  <div class="input-group">
+    <i data-feather="user"></i>
+    <input
+      type="text"
+      name="name"
+      placeholder="Nama"
+      required
+    />
+  </div>
+
+  <div class="input-group">
+    <i data-feather="mail"></i>
+    <input
+      type="email"
+      name="email"
+      placeholder="Email"
+      required
+    />
+  </div>
+
+  <div class="input-group">
+    <i data-feather="phone"></i>
+    <input
+      type="text"
+      name="phone"
+      placeholder="No HP"
+      required
+    />
+  </div>
+
+  <div class="input-group">
+    <i data-feather="message-square"></i>
+    <textarea
+      name="message"
+      placeholder="Tulis pesan kamu..."
+      required
+    ></textarea>
+  </div>
+
+  <!-- OPTIONAL -->
+  <input type="hidden" name="_subject" value="Pesan Baru dari Website">
+  <input type="hidden" name="_captcha" value="false">
+
+  <button type="submit" class="btn">Kirim Pesan</button>
+</form>
+      </div>
+    </section>
+    <!-- Contact Section End-->
+
+    <!-- FOOTER START -->
+    <footer>
+      <div class="socials">
+        <a href="https://instagram.com/rzkyrmdhni_17" target="_blank"
+          ><i data-feather="instagram"></i
+        ></a>
+        <a href="https://www.facebook.com/Riskieee17" target="_blank"
+          ><i data-feather="facebook"></i
+        ></a>
+        <a href="https://github.com/rizkyrama-76" target="_blank">
+          <i data-feather="github"></i>
+        </a>
+        <a
+          href="https://linkedin.com/in/rizky-ramadhani-28601b316"
+          target="_blank"
+          ><i data-feather="linkedin"></i
+        ></a>
+      </div>
+
+      <div class="credit">
+        <p>
+          Created by <a href="">Rizky Ramadhani</a>. | &copy; Shizuku Matcha
+          2025
+        </p>
+      </div>
+    </footer>
+    <!-- FOOTER END -->
+
+    <script>
+      feather.replace();
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
