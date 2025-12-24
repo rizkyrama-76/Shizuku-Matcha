@@ -300,26 +300,8 @@ footer .credit a {
   html {
     font-size: 55%;
   }
-
-  body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  footer {
-    margin-top: auto;
-  }
-
-  footer .socials a {
-    margin: 0.5rem;
-  }
-
-  footer .credit {
-    font-size: 1.1rem;
-    line-height: 1.6;
-  }
 }
+
 
 
 
