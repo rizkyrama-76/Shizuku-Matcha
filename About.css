@@ -297,10 +297,26 @@ footer .credit a {
 
 /* Mobile Phone */
 @media (max-width: 450px) {
-  html {
+  html,
+  body {
+    height: 100%;
     font-size: 55%;
   }
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about {
+    flex: 1;
+  }
+
+  footer {
+    margin-top: auto;
+  }
 }
+
 
 
 
