@@ -20,7 +20,6 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: var(--bg);
   color: #fff5f2;
-  min-height: 100vh;
 }
 
 /* Navbar */
@@ -302,8 +301,14 @@ footer .credit a {
     font-size: 55%;
   }
 
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
   footer {
-    padding: 2rem 1rem;
+    margin-top: auto;
   }
 
   footer .socials a {
@@ -315,6 +320,7 @@ footer .credit a {
     line-height: 1.6;
   }
 }
+
 
 
 
