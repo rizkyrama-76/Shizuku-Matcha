@@ -299,4 +299,18 @@ footer .credit a {
   html {
     font-size: 55%;
   }
+  footer {
+    padding: 2rem 1rem;
+  }
+
+  footer .socials a {
+    margin: 0.5rem;
+  }
+
+  footer .credit {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
 }
+}
+
